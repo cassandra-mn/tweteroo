@@ -6,6 +6,7 @@ app.use(cors());
 app.use(json());
 
 const users = [];
+const tweets = [];
 
 app.post('/sign-up', (req, res) => {
     const body = req.body;
@@ -14,12 +15,21 @@ app.post('/sign-up', (req, res) => {
         avatar: body.avatar
     };
     users.push(user);
-    console.log('OK');
     res.send('OK');
 });
 
 app.get('/sign-up', (req, res) => {
     res.send(users);
+});
+
+app.post('/tweets', (req, res) => {
+    const body = req.body;
+    const tweet = {
+        username: body.username,
+        tweet: body.tweet
+    };
+    tweets.push(tweet);
+    res.send('OK');
 });
 
 app.listen(5000, () => {
