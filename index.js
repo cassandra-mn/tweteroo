@@ -32,6 +32,10 @@ app.post('/tweets', (req, res) => {
     res.send('OK');
 });
 
+app.get('/tweets', (req, res) => {
+    res.send(tweets.slice(tweets.length - 10));
+});
+
 app.listen(5000, () => {
     console.log('No ar');
 });
