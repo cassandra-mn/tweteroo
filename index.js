@@ -15,7 +15,7 @@ app.post('/sign-up', (req, res) => {
         avatar: body.avatar
     };
     users.push(user);
-    res.send('OK');
+    res.status(201).send('OK');
 });
 
 app.get('/sign-up', (req, res) => {
@@ -29,7 +29,7 @@ app.post('/tweets', (req, res) => {
         tweet: body.tweet
     };
     tweets.push(tweet);
-    res.send('OK');
+    res.status(201).send('OK');
 });
 
 app.get('/tweets', (req, res) => {
