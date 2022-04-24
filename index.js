@@ -19,7 +19,7 @@ app.post('/sign-up', (req, res) => {
 });
 
 app.get('/sign-up', (req, res) => {
-    res.send(users);
+    res.send('OK');
 });
 
 app.post('/tweets', (req, res) => {
@@ -36,6 +36,13 @@ app.get('/tweets', (req, res) => {
     res.send(tweets.slice(tweets.length - 10));
 });
 
-app.listen(5000, () => {
+app.get('/tweets/:user', (req, res) => {
+    const {user} = req.params;
+    const tweetsUsername = tweets.filter(tweet => tweet.username === user);
+    res.send(tweetsUsername);
+});
+
+app.listen(5000, err => {
+    if (err) console.log(err);
     console.log('No ar');
 });
